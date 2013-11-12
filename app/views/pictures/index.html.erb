@@ -3,7 +3,7 @@
 <ul>
 	<% @list_of_pics.each do |pic|%>
 	<li>
-		<img width="200" src = "<%= pic.source %>">
+		<%= image_tag(pic.source, :width => 200) %>
 		<p><%= pic.caption %></p>
 	</li>
 	<% end %>

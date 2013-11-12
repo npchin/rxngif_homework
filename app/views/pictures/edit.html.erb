@@ -1,17 +1,17 @@
 <h1>Edit A Picture</h1>
  
-<form action="http://localhost:3000/update_picture/<%= @picture.id %>">
 
-<form>
+<%= form_tag(picture_url(@picture.id), :method => "patch") do %>
+
   <div>
-    <label for="the_caption">Caption:</label>
-    <input id="the_caption" type="text" name="caption" value=<%= @picture.caption %>>
+    <%= label_tag :caption, "Caption" %>
+    <%= text_field_tag :caption, @picture.caption %>
   </div>
   <div>
-    <label for="image_url">Image URL:</label>
-    <input id="image_url" type="text" name="source" value=<%= @picture.source %>>
+    <%= label_tag :source, "Image URL" %>
+    <%= text_field_tag :source, @picture.source  %>
   </div>
   <div>
-    <input type="submit" value="Update Picture">
+    <%= submit_tag "Update Picture" %>
   </div>
-</form>
+<% end %>

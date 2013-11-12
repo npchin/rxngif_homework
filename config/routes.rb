@@ -1,15 +1,23 @@
 Rxngif::Application.routes.draw do
-  get("/picture_details/:id", { :controller => "pictures", :action => "show" })
+# CREATE
 
-  get("/all_pictures", { :controller => "pictures", :action => "index" })
+  get("/pictures/new", { :controller => "pictures", :action => "new", :as => "new_picture" })
 
-  get("/new_picture_form", { :controller => "pictures", :action => "new" })
+  post("/pictures", { :controller => "pictures", :action => "create", :as => "pictures" })
 
-  get("/create_picture", { :controller => "pictures", :action => "create" })
+# READ
+  get("/pictures", { :controller => "pictures", :action => "index" })
+  
+  get("/pictures/:id", { :controller => "pictures", :action => "show", :as => "picture" })
 
-  get("/delete_picture/:id", { :controller => "pictures", :action => "destroy" })
 
-  get("/edit_picture_form/:id", { :controller => "pictures", :action => "edit" })
+# UPDATE
 
-  get("/update_picture/:id", { :controller => "pictures", :action => "update" })
+  get("/pictures/:id/edit", { :controller => "pictures", :action => "edit", :as => "edit_picture" })
+
+  patch("/pictures/:id", { :controller => "pictures", :action => "update" })
+
+# DELETE
+
+  delete("/pictures/:id", { :controller => "pictures", :action => "destroy" })  
 end
